@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRI Protocol Builder</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'style.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Nunito:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="card">
+        <div class="card_top">
+            <img src="{%static 'logo.png'%}" id="logo">
+            <h1>PROTOCOLS</h1>
+        </div>
+        <div class="main">
+            <div class="main-top">
+                <h2>Sign up</h2>
+                <h3>Fill out the form below to create an account.</h3>
+            </div>
+            <div class="form_fields">
+                <form action="/new_reg" method="post">
+                    {%csrf_token%}
+                    <p class="labels">Email address</p>
+                    <input type="text" name="email" placeholder="Enter your email">
+                    <p class="labels">Facility name</p>
+                    <input type="text" name="facility" placeholder="Enter your facility name">
+                    <p class="labels">First name</p>
+                    <input type="text" name="first_name" placeholder="Enter your first name">
+                    <p class="labels">Last name</p>
+                    <input type="text" name="last_name" placeholder="Enter your last name">
+                    <p class="labels">Password</p>
+                    <input type="password" name="password" placeholder="Enter your password">
+                    <p class="labels">Confirm Password</p>
+                    <input type="password" name="confirm_password" placeholder="Enter your password">
+                    <button type="submit">Sign up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="undercard">
+        {%if messages%}
+        <ul>
+        {%for message in messages%}
+            <li class="undercard_text">{{message}}</li>
+        {%endfor%}
+        </ul>
+        {%endif%}
+        <p class="undercard_text">Already have an account? <a href="/">Log in.</a></p>
+    </div>
+</body>
+</html>

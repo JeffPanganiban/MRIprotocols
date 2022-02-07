@@ -1,0 +1,277 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Nunito', sans-serif;
+    background-color: #F2F4F7;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.left_nav {
+    width: 260px;
+    background-color: #313A46;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#logo{
+    height: 45px;
+    margin-top: 10px;
+    margin-left: -25px;
+}
+
+.navhead{
+    text-align: center;
+    width: 260px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.navhead h1 {
+    color: white;
+    font-size: 16pt;
+    margin-left: -5px;
+}
+
+.main_nav {
+    display: flex;
+    width: 220px;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+.main_nav h3 {
+    color: #bccee4;
+    font-size: 12pt;
+    font-weight: 200;
+}
+
+.main_nav .section {
+    font-size: 10pt;
+    font-weight: 200;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.header {
+    height: 40px;
+    background-color: white;
+    padding: 10px 20px;;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header h3 {
+    margin: 0px;
+}
+
+.content {
+    padding: 20px;
+}
+.card {
+    background-color: white;
+    padding: 15px;
+    min-height: 200px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.title {
+    color: #313A46;
+}
+
+.title h1 {
+    margin: 0px;
+    font-size: 15pt;
+    color: #313A46;
+}
+
+.card h3 {
+    margin: 0px;
+    font-size: 12pt;
+}
+
+#category {
+    width: 200px;
+    padding: 8px;
+    margin-top: 10px;
+}
+
+select {
+    width: 200px;
+    padding: 8px;
+    margin-bottom: 25px;
+}
+
+input {
+    width: 180px;
+    padding: 8px;
+    margin-top: 10px;
+}
+
+button {
+    background-color: #2b4482;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 11pt;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    width: 175px;
+}
+
+.flow {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tab {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #EEF2F7;
+    text-align: center;
+    padding: 25px 0px;
+    margin-bottom: 20px;
+    color: #313A46;
+}
+
+.current {
+    background-color: #727CF5;
+    color: white;
+}
+
+.sequence {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#plane  {
+    width: 125px;
+    margin-top: 15px;
+}
+
+#weighting  {
+    width: 75px;
+    margin-top: 15px;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+tr th {
+    background-color: #EEF2F7;
+    padding: 15px 0px;
+    vertical-align: middle;
+}
+
+.parameter {
+    width: 75px;
+    margin: 0px;
+    margin-top: -10px;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    padding: 8px;
+}
+
+.notes_box {
+    width: 200px;
+    resize: none;
+    font-family: 'Nunito', sans-serif;
+    padding: 8px;
+}
+
+.hidden{
+    background: white;
+}
+
+.add_button{
+    width: 50px;
+}
+
+.save_button{
+    width: 100px;
+}
+
+.main_nav a {
+    color: #bccee4;
+    font-size: 12pt;
+    font-weight: 200;
+    text-decoration: none;
+}
+
+.main_nav .protocol_link {
+    color: #EEF2F7;
+    font-size: 10pt;
+    margin-left: 20px;
+    text-transform: uppercase;
+}
+
+.protocol_title {
+    color: #313A46;
+    display: flex;
+    justify-content: space-between;
+}
+
+.protocol_title h1 {
+    margin: 0px;
+    font-size: 15pt;
+    color: #313A46;
+}
+
+.protocol_title .delete {
+    background-color: #c11515;
+    margin-left: 5px;
+}
+
+#edit_scan {
+    background-color: #2b4482;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 10pt;
+    border: none;
+    border-radius: 4px;
+    width: 100px;
+}
+
+#delete_scan {
+    background-color: #c11515;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 10pt;
+    border: none;
+    border-radius: 4px;
+    width: 100px;
+    margin-left: 5px;
+}
+
+.edit_buttons {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.title_buttons {
+    display: flex;
+}
+
+.logout_button {
+    background-color: #2b4482;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 11pt;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 10px;
+}

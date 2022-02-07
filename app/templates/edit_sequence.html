@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRI Protocol Builder</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'style2.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Nunito:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="left_nav">
+            <div class="navhead">
+                <img src="{%static 'logo.png'%}" id="logo">
+                <h1>PROTOCOLS</h1>
+            </div>
+            <div class="main_nav">
+                <h3><a href="/build">Build</a></h3>
+                <h3 class="section">VIEW & EDIT</h3>
+                {%for category in category%}
+                    <h3>{{category.name}}</h3>
+                        {%for protocol in category.protocols.all%}
+                        <p><a href="/details/{{protocol.id}}" class="protocol_link">{{protocol.name}}</a></p>
+                        {%endfor%}
+                {%endfor%}
+            </div>
+        </div>
+        <div class="main">
+            <div class="header">
+                <h3>Welcome, {{user.first_name}}</h3>
+            </div>
+            <div class="content">
+                <div class="protocol_title">
+                    <h1>{{selected.protocol.name}}</h1>
+                    <div class="title_buttons">
+
+                    </div>
+                </div>
+                <div class="card">
+
+                    <table class="sequence">
+                        <tr>
+                            <th>PLANE</th>
+                            <th>WEIGHTING</th>
+                            <th>SLICE</th>
+                            <th>GAP</th>
+                            <th>FAT SAT</th>
+                            <th>FOV</th>
+                            <th>NOTES</th>
+                            <th class="hidden"></th>
+                        </tr>
+                            <tr>
+                                <td>
+                                    <form action="/edit_sequence_submit" method="post">
+                                    <input type="hidden" name="id" value="{{selected.id}}"></input>
+                                    {%csrf_token%}
+                                    <select name="plane" id="plane">
+                                        <option value="{{selected.plane}}" disable selected>{{selected.plane}}</option>
+                                        <option name ="Axial" value="Axial">Axial</option>
+                                        <option name ="Coronal" value="Coronal">Coronal</option>
+                                        <option name ="Sagittal" value="Sagittal">Sagittal</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name="weighting" id="weighting">
+                                        <option value="{{selected.weighting}}" disable selected>{{selected.weighting}}</option>
+                                        <option name ="T1" value="T1">T1</option>
+                                        <option name ="T2" value="T2">T2</option>
+                                        <option name ="PD" value="PD">PD</option>
+                                        <option name ="STIR" value="STIR">STIR</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="slice" placeholder="{{selected.slice}}" value="{{selected.slice}}" class="parameter"></input></td>
+                                <td><input type="text" name="gap" placeholder="{{selected.gap}}" value="{{selected.gap}}" class="parameter"></input></td>
+                                <td><input type="text" name="fat_sat" placeholder="{{selected.fat_sat}}" value="{{selected.fat_sat}}" class="parameter"></td>
+                                <td><input type="text" name="FOV" placeholder="{{selected.fov}}" value="{{selected.fov}}" class="parameter"></input></td>
+                                <td><textarea name="notes" type="text" class="notes_box" placeholder="{{selected.notes}}" value="{{selected.notes}}">{{selected.notes}}</textarea></td>
+                                <td class="edit_buttons">
+                                    <button id="edit_scan">Save</button></a></form>
+                                    <form action="/delete_sequence" method="post">{%csrf_token%}
+                                        <input type="hidden" name="id" value="{{selected.id}}"></input>
+                                        <input type="hidden" name="protocol_id" value="{{selected.protocol.id}}"></input>
+                                        <button id="delete_scan">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>                       
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
